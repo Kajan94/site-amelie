@@ -15,6 +15,14 @@ python -m flask --app app run
 
 Sur [localhost:5000](http://127.0.0.1:5000), ouvrir **Montants des prescriptions par région**, puis passer de 2022 à 2023. L’extrait SQLite comprend quatre régions. En 2023, la barre Île-de-France correspond à **7 814 970 581 €**.
 
+## Explorer les professions de santé
+
+Ouvrir la vue des professions, sélectionner une région sur la carte et utiliser les filtres de profession ou d’effectif. Le mode d’exercice apparaît dans les résultats. L’application interroge SQLite et restitue les données filtrées. pandas prépare les résultats, Flask sert les pages et Matplotlib génère les graphiques de prescriptions.
+
+Le projet comprend aussi un tableau de bord Excel sur les effectifs. J’y ai travaillé sur le nettoyage des données, les indicateurs et les tableaux croisés dynamiques. [Voir la fiche Data Ameli](https://kajan94.github.io/Portefolio/#ameli)
+
+![Exemple illustré du filtre des professions avec les données de l’extrait SQLite](docs/filtre-professions-ameli.png)
+
 ## Comprendre ce qui est comparé
 
 La requête choisit le poste **total**, l’agrégat **Ensemble des médecins** et le code départemental **999** pour le niveau régional. La ligne de la France entière porte le code région **99**. Cette sélection évite de mélanger des niveaux d’agrégation dans le classement.
@@ -34,4 +42,4 @@ La préparation extrait SQLite de l’archive fournie `site-amelie.zip`. Le site
 
 L’extrait est dérivé de données agrégées de la Cnam, sous [Open Database License 1.0](https://opendatacommons.org/licenses/odbl/1-0/). [Montants des prescriptions](https://data.ameli.fr/explore/assets/prescriptions/) · [Effectifs par mode d’exercice](https://data.ameli.fr/explore/dataset/demographie-exercices-liberaux/) · [Conditions de réutilisation](https://data.ameli.fr/terms/terms-and-conditions/)
 
-[Projet dans le portfolio](https://kajan94.github.io/#ameli)
+[Projet dans le portfolio](https://kajan94.github.io/Portefolio/#ameli)
