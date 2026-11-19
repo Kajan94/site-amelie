@@ -18,12 +18,6 @@ Accès aux prescriptions, à l’histogramme, à la carte des régions et aux gr
 
 Sélection d’une région sur la carte pour consulter les professions de santé associées.
 
-### Professions de santé
-
-[![Sélection des professions et tableau des effectifs en Hauts-de-France](docs/03-professions-hauts-de-france.png)](docs/03-professions-hauts-de-france.png)
-
-Cases à cocher pour choisir les professions affichées dans le tableau des effectifs et des modes d’exercice.
-
 ### Prescriptions par région
 
 [![Graphiques en anneaux des prescriptions par région pour 2010](docs/04-prescriptions-regions.png)](docs/04-prescriptions-regions.png)
