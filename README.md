@@ -73,4 +73,4 @@ Données agrégées de la Cnam, sous [Open Database License 1.0](https://opendat
 
 ## Travail en équipe
 
-Projet universitaire réalisé en groupe en BUT Informatique à l’IUT de Créteil-Vitry (UPEC). Le travail a porté sur l’interrogation des données de santé et leur restitution dans une application web avec une carte, des tableaux et des graphiques.
+Projet universitaire réalisé en groupe en **première année de BUT Informatique** à l’IUT de Créteil-Vitry (UPEC). Le travail a porté sur l’interrogation des données de santé et leur restitution dans une application web avec une carte, des tableaux et des graphiques.
