@@ -4,7 +4,7 @@ Data Ameli est une application web qui permet d’explorer les données agrégé
 
 ## Aperçus du projet
 
-Captures du projet universitaire, fournies pour illustrer l’interface. Elles précèdent les corrections des calculs et du regroupement des régions ; la démonstration actuelle utilise la base complète de 2010 à 2023.
+L’accueil et la carte sont des captures du projet universitaire. La capture d’accueil montre une ancienne démonstration ; la version actuelle utilise la base complète de 2010 à 2023.
 
 ### Accueil
 
@@ -20,9 +20,9 @@ Sélection d’une région sur la carte pour consulter les professions de santé
 
 ### Prescriptions par région
 
-[![Graphiques en anneaux des prescriptions par région pour 2010](docs/04-prescriptions-regions.png)](docs/04-prescriptions-regions.png)
+[![Aperçu illustré des prescriptions par région pour 2010](docs/04-prescriptions-regions.png)](docs/04-prescriptions-regions.png)
 
-Sélection d’une année et affichage des prescriptions en anneaux.
+Aperçu illustré réalisé à partir des résultats du code actuel pour 2010 : 13 régions métropolitaines et 5 régions d’outre-mer. Les pourcentages sont calculés séparément dans chaque groupe. Ce visuel retouché n’est pas une capture directe de l’application.
 
 ## Lancer en local
 
