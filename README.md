@@ -41,10 +41,6 @@ Flask reçoit les demandes de l’utilisateur, pandas prépare les résultats de
 
 Pour la conception et l’exploration SQL, consulter le [dépôt consacré à la base de données](https://github.com/Kajan94/database-amelie).
 
-## Données
-
-Les graphiques régionaux utilisent le poste **total**, l’agrégat **Ensemble des médecins** et le code départemental **999**. Les résultats nationaux utilisent le code région **99**. Ces sélections permettent de comparer un même périmètre sans additionner les totaux nationaux, régionaux et départementaux.
-
 Données agrégées de la Cnam, sous [Open Database License 1.0](https://opendatacommons.org/licenses/odbl/1-0/). [Prescriptions](https://data.ameli.fr/explore/assets/prescriptions/) · [Effectifs par mode d’exercice](https://data.ameli.fr/explore/dataset/demographie-exercices-liberaux/) · [Conditions de réutilisation](https://data.ameli.fr/terms/terms-and-conditions/)
 
 [Projet dans le portfolio](https://kajan94.github.io/Portefolio/#ameli)
