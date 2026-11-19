@@ -2,6 +2,34 @@
 
 Data Ameli est une application web qui permet d’explorer les données agrégées de l’Assurance Maladie. L’utilisateur peut consulter les effectifs des professions de santé sur une carte des régions, comparer les montants des prescriptions entre régions et visualiser leur répartition par poste pour une année donnée.
 
+## Aperçus du projet
+
+Captures du projet universitaire, fournies pour illustrer l’interface. Elles précèdent les corrections des calculs et du regroupement des régions ; la démonstration actuelle utilise la base complète de 2010 à 2023.
+
+### Accueil
+
+[![Page d’accueil de Data Ameli](docs/01-accueil.png)](docs/01-accueil.png)
+
+Accès aux prescriptions, à l’histogramme, à la carte des régions et aux graphiques régionaux.
+
+### Carte des régions
+
+[![Carte des régions métropolitaines de Data Ameli](docs/02-carte-regions.png)](docs/02-carte-regions.png)
+
+Sélection d’une région sur la carte pour consulter les professions de santé associées.
+
+### Professions de santé
+
+[![Sélection des professions et tableau des effectifs en Hauts-de-France](docs/03-professions-hauts-de-france.png)](docs/03-professions-hauts-de-france.png)
+
+Cases à cocher pour choisir les professions affichées dans le tableau des effectifs et des modes d’exercice.
+
+### Prescriptions par région
+
+[![Graphiques en anneaux des prescriptions par région pour 2010](docs/04-prescriptions-regions.png)](docs/04-prescriptions-regions.png)
+
+Sélection d’une année et affichage des prescriptions en anneaux.
+
 ## Lancer en local
 
 Préparer **Python 3.12** avec pip, version utilisée pour vérifier le projet. Télécharger ou cloner le dépôt, puis ouvrir un terminal à sa racine, dans le dossier `site-amelie`.
