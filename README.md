@@ -6,17 +6,17 @@ Data Ameli est une application web qui permet d’explorer les données agrégé
 
 ### Prescriptions par région
 
-[![Montants des prescriptions dans les quatre régions de l’extrait en 2023](docs/prescriptions-regions-2023.png)](docs/prescriptions-regions-2023.png)
+[![Montants des prescriptions dans les 18 régions en 2023](docs/prescriptions-regions-2023.png)](docs/prescriptions-regions-2023.png)
 
-Comparaison des montants totaux des prescriptions en 2023, exprimés en millions d’euros. L’extrait fourni couvre l’Île-de-France, Auvergne-Rhône-Alpes, les Hauts-de-France et La Réunion. Le sélecteur d’année permet de comparer 2022 et 2023.
+Comparaison des montants totaux des prescriptions en 2023, exprimés en millions d’euros. La base complète couvre les 18 régions. Le sélecteur d’année permet de parcourir la période 2010 à 2023.
 
 ### Effectifs des professions de santé
 
 [![Aperçu illustré des effectifs et modes d’exercice des médecins en Île-de-France en 2023](docs/filtre-professions-ameli.png)](docs/filtre-professions-ameli.png)
 
-Illustration des données consultables après la sélection d’une région : profession, effectif et mode d’exercice libéral. Ce visuel reprend les résultats de l’extrait SQLite ; il s’agit d’une présentation illustrée, et non d’une capture de l’interface.
+Illustration des données consultables après la sélection d’une région : profession, effectif et mode d’exercice libéral. Ce visuel reprend les résultats de la base SQLite ; il s’agit d’une présentation illustrée, et non d’une capture de l’interface.
 
-## Lancer la démonstration en local
+## Lancer en local
 
 Préparer **Python 3.12**, version utilisée pour vérifier le projet. Télécharger ou cloner le dépôt, puis ouvrir un terminal à sa racine, dans le dossier `site-amelie`.
 
@@ -39,36 +39,16 @@ python -m flask --app app run
 
 Ouvrir [localhost:5000](http://127.0.0.1:5000). Aucun compte n’est nécessaire. Le site utilise SQLite et ne nécessite pas de serveur de base de données.
 
-La démonstration démarre avec `demo/amelie-demo.sqlite`, un **extrait des données réelles agrégées** : prescriptions de 2022 et 2023, effectifs de 2023 pour quatre régions et agrégats nationaux nécessaires au graphique par poste. Le script `demo/creer_extrait.py` sert à reconstruire cet extrait à partir de la base complète ; il n’est pas nécessaire au lancement.
+Au premier lancement, l’application extrait automatiquement la **base complète déjà remplie** depuis `site-amelie.zip` vers `model/data/debase_db.sqllite3` (environ 278 Mo). Il faut conserver cette archive à la racine du dépôt et prévoir l’espace disque nécessaire. Aucun import CSV ni génération de données n’est à exécuter. Les lancements suivants réutilisent le fichier extrait.
+
+Les données réelles agrégées couvrent **2010 à 2023**. La carte permet de consulter les effectifs des **18 régions**, et les deux graphiques utilisent la base complète dès le premier lancement.
 
 ## Fonctionnalités
 
-- **Professions de santé** : choisir une région sur la carte, puis cocher ou décocher les professions à afficher. Le tableau présente les effectifs et les modes d’exercice pour la dernière année disponible. Dans la démonstration, un message indique les régions absentes de l’extrait.
+- **Professions de santé** : choisir une région sur la carte, puis cocher ou décocher les professions à afficher. Le tableau présente les effectifs et les modes d’exercice pour la dernière année disponible.
 - **Prescriptions par région** : sélectionner une année et comparer les montants totaux régionaux pour l’ensemble des médecins.
 - **Montants moyens par poste** : consulter un graphique national par catégorie de prescription pour l’année choisie.
 - **Aperçu des prescriptions** : rechercher dans un tableau limité à 200 lignes au maximum. Cette limite concerne l’aperçu ; les graphiques interrogent les agrégats de la base.
-
-## Utiliser la base complète
-
-Arrêter le serveur avec `Ctrl+C`, puis préparer les données et relancer le site.
-
-### Windows PowerShell
-
-```powershell
-.\.venv\Scripts\python.exe prepare_data.py
-.\.venv\Scripts\python.exe -m flask --app app run
-```
-
-### macOS ou Linux
-
-Avec l’environnement virtuel activé :
-
-```sh
-python prepare_data.py
-python -m flask --app app run
-```
-
-Le script extrait la base de `site-amelie.zip` vers `model/data/debase_db.sqllite3` (environ 278 Mo). Au redémarrage, le site utilise ce fichier en priorité. Les prescriptions couvrent alors **2010 à 2023**, avec **18 régions** dans le graphique régional de 2023. Les effectifs affichés restent ceux de la dernière année disponible.
 
 ## Organisation du code
 
@@ -78,8 +58,8 @@ Flask reçoit les demandes de l’utilisateur, pandas prépare les résultats de
 - `model/db.py` : connexion SQLite et requêtes sur les effectifs et les prescriptions.
 - `utils/graphiques.py` : génération des graphiques.
 - `templates/` et `static/` : pages, carte et interactions de l’interface.
-- `demo/` : extrait SQLite et script de reconstruction.
-- `prepare_data.py` : extraction de la base complète fournie dans l’archive.
+- `prepare_data.py` : extraction automatique de la base complète fournie dans l’archive.
+- `model/data/debase_db.sqllite3` : fichier SQLite complet utilisé par le site après extraction.
 
 Pour la conception et l’exploration SQL, consulter le [dépôt consacré à la base de données](https://github.com/Kajan94/database-amelie).
 
