@@ -18,24 +18,22 @@ Illustration des données consultables après la sélection d’une région : pr
 
 ## Lancer en local
 
-Préparer **Python 3.12**, version utilisée pour vérifier le projet. Télécharger ou cloner le dépôt, puis ouvrir un terminal à sa racine, dans le dossier `site-amelie`.
+Préparer **Python 3.12** avec pip, version utilisée pour vérifier le projet. Télécharger ou cloner le dépôt, puis ouvrir un terminal à sa racine, dans le dossier `site-amelie`.
 
-### Windows PowerShell
+### Bibliothèques Python
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m flask --app app run
-```
+- **Flask 3.1.3** : application web.
+- **matplotlib 3.11.2** : génération des graphiques.
+- **pandas 3.0.1** : traitement des données.
 
-### macOS ou Linux
+Installer les bibliothèques et lancer l’application :
 
 ```sh
-python3 -m venv .venv
-source .venv/bin/activate
 python -m pip install -r requirements.txt
 python -m flask --app app run
 ```
+
+Sur macOS ou Linux, utiliser `python3` à la place de `python` si nécessaire.
 
 Ouvrir [localhost:5000](http://127.0.0.1:5000). Aucun compte n’est nécessaire. Le site utilise SQLite et ne nécessite pas de serveur de base de données.
 
