@@ -2,20 +2,6 @@
 
 Data Ameli est une application web qui permet d’explorer les données agrégées de l’Assurance Maladie. L’utilisateur peut consulter les effectifs des professions de santé sur une carte des régions, comparer les montants des prescriptions entre régions et visualiser leur répartition par poste pour une année donnée.
 
-## Aperçu du site
-
-### Prescriptions par région
-
-[![Montants des prescriptions dans les 18 régions en 2023](docs/prescriptions-regions-2023.png)](docs/prescriptions-regions-2023.png)
-
-Comparaison des montants totaux des prescriptions en 2023, exprimés en millions d’euros. La base complète couvre les 18 régions. Le sélecteur d’année permet de parcourir la période 2010 à 2023.
-
-### Effectifs des professions de santé
-
-[![Aperçu illustré des effectifs et modes d’exercice des médecins en Île-de-France en 2023](docs/filtre-professions-ameli.png)](docs/filtre-professions-ameli.png)
-
-Illustration des données consultables après la sélection d’une région : profession, effectif et mode d’exercice libéral. Ce visuel reprend les résultats de la base SQLite ; il s’agit d’une présentation illustrée, et non d’une capture de l’interface.
-
 ## Lancer en local
 
 Préparer **Python 3.12** avec pip, version utilisée pour vérifier le projet. Télécharger ou cloner le dépôt, puis ouvrir un terminal à sa racine, dans le dossier `site-amelie`.
@@ -38,8 +24,8 @@ Les données réelles agrégées couvrent **2010 à 2023**. La carte permet de c
 ## Fonctionnalités
 
 - **Professions de santé** : choisir une région sur la carte, puis cocher ou décocher les professions à afficher. Le tableau présente les effectifs et les modes d’exercice pour la dernière année disponible.
-- **Prescriptions par région** : sélectionner une année et comparer les montants totaux régionaux pour l’ensemble des médecins.
-- **Montants moyens par poste** : consulter un graphique national par catégorie de prescription pour l’année choisie.
+- **Prescriptions par région** : sélectionner une année et consulter deux graphiques en anneaux, l’un pour les régions métropolitaines et l’autre pour l’outre-mer. Chaque graphique présente la répartition des montants au sein de son groupe, pour l’ensemble des médecins.
+- **Montants moyens par poste** : consulter un histogramme vertical national par catégorie de prescription pour l’année choisie, exprimé en milliers d’euros.
 - **Aperçu des prescriptions** : rechercher dans un tableau limité à 200 lignes au maximum. Cette limite concerne l’aperçu ; les graphiques interrogent les agrégats de la base.
 
 ## Organisation du code

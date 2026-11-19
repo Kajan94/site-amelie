@@ -4,7 +4,7 @@ import matplotlib
 
 matplotlib.use('Agg')
 
-from utils.graphiques import graphique, graphique_montants_region
+from utils.graphiques import graphique, graphique_camembert_prescriptions
 
 app = Flask(__name__)
 
@@ -114,7 +114,7 @@ def histogramme_prescription():
 def graphique_prescriptions_region():
     annees = db.annees_prescriptions()
     annee = request.form.get('annee', default=annees[0] if annees else None, type=int)
-    histogram_image = graphique_montants_region(annee)
+    histogram_image = graphique_camembert_prescriptions(annee)
     return render_template(
         'graphique_prescriptions_region.html',
         histogram_image=histogram_image,

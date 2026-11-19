@@ -23,29 +23,31 @@
             </nav>
         </div>
     </header>
-    
+
     <div class="container1">
         <!-- Titre principal de la page -->
-        <h1>Montants des prescriptions par région</h1>
-        <p>Ensemble des médecins, tous postes de prescription confondus.</p>
-        
+        <h1>Taux des prescriptions par région</h1>
+        <p>Répartition des montants totaux pour l’ensemble des médecins. Les pourcentages sont calculés séparément au sein de chaque groupe : métropole et outre-mer.</p>
+
         <!-- Formulaire pour sélectionner une année -->
         <form method="POST">
-            <label for="annee">Choisir une année</label>
+            <label for="annee">Choisir une année :</label>
             <!-- Champ pour entrer l'année -->
-            <select id="annee" name="annee">
-                {% for option in annees %}
-                <option value="{{ option }}"{% if option == annee %} selected{% endif %}>{{ option }}</option>
-                {% endfor %}
-            </select>
+            <input type="number" id="annee" name="annee" min="{{ annees|min if annees else 2010 }}" max="{{ annees|max if annees else 2023 }}" value="{{ annee }}" placeholder="Année">
             <!-- Bouton pour soumettre le formulaire -->
             <button type="submit">Filtrer</button>
         </form>
-        
+
+        {% if annee %}
+            <!-- Affiche l'année sélectionnée si définie -->
+            <h2>Année sélectionnée: {{ annee }}</h2>
+        {% endif %}
+
+        <!-- Affiche le graphique des prescriptions -->
         {% if histogram_image %}
-            <img src="{{ histogram_image }}" alt="Montants des prescriptions par région en {{ annee }}">
+        <img src="{{ histogram_image }}" alt="Répartition des prescriptions entre les régions métropolitaines et entre les régions d’outre-mer en {{ annee }}" style="max-width: 100%; height: auto;">
         {% else %}
-            <p>Aucun montant publié pour cette année dans la base chargée.</p>
+        <p>Aucun montant publié pour cette année dans la base chargée.</p>
         {% endif %}
     </div>
 </body>

@@ -22,26 +22,29 @@
             </nav>
         </div>
     </header>
-    
+
     <div class="container1">
-        <h1>Montants moyens des prescriptions en France</h1>
-        <p>Montants nationaux publiés pour l’ensemble des médecins, par poste de prescription.</p>
+        <!-- Formulaire pour sélectionner une année -->
         <form method="POST" action="{{ url_for('histogramme_prescription') }}">
-            <label for="annee">Choisir une année</label>
-            <select id="annee" name="annee">
-                {% for option in annees %}
-                <option value="{{ option }}"{% if option == annee %} selected{% endif %}>{{ option }}</option>
-                {% endfor %}
-            </select>
+            <label for="annee">Sélectionnez une année :</label>
+            <!-- Champ pour entrer l'année -->
+            <input type="number" id="annee" name="annee" value="{{ annee }}" min="{{ annees|min if annees else 2010 }}" max="{{ annees|max if annees else 2023 }}">
+            <!-- Bouton pour soumettre le formulaire -->
             <button type="submit">Afficher le graphique</button>
         </form>
 
+        {% if annee %}
+            <!-- Affiche l'année sélectionnée si elle est définie -->
+            <h1>Année sélectionnée: {{ annee }}</h1>
+        {% endif %}
+
+        <!-- Affiche l'image de l'histogramme -->
         {% if histogram_image %}
-            <img src="{{ histogram_image }}" alt="Montants moyens des prescriptions en France en {{ annee }}">
+        <img id="histo" src="{{ histogram_image }}" alt="Histogramme des montants moyens des prescriptions en France en {{ annee }}">
         {% else %}
-            <p>Aucun montant publié pour cette année dans la base chargée.</p>
+        <p>Aucun montant publié pour cette année dans la base chargée.</p>
         {% endif %}
     </div>
-    
+
 </body>
 </html>
