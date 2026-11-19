@@ -20,12 +20,6 @@ Illustration des données consultables après la sélection d’une région : pr
 
 Préparer **Python 3.12** avec pip, version utilisée pour vérifier le projet. Télécharger ou cloner le dépôt, puis ouvrir un terminal à sa racine, dans le dossier `site-amelie`.
 
-### Bibliothèques Python
-
-- **Flask 3.1.3** : application web.
-- **matplotlib 3.11.2** : génération des graphiques.
-- **pandas 3.0.1** : traitement des données.
-
 Installer les bibliothèques et lancer l’application :
 
 ```sh
