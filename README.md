@@ -24,15 +24,7 @@ Répartition des montants des prescriptions en 2023 pour l’ensemble des médec
 
 ## Lancer en local
 
-Préparer **Python 3.12** avec pip, version utilisée pour vérifier le projet. Télécharger le dépôt avec **Code > Download ZIP**, le décompresser, puis ouvrir un terminal à sa racine, dans le dossier `site-amelie`. Le ZIP inclut le code et la base complète.
-
-La base SQLite intégrale **`model/data/ameli.db`** est stockée dans le dépôt avec **Git LFS**, comme dans le dépôt `database-amelie`. Elle conserve toutes les tables, dont les honoraires, et l’ensemble des données de **2010 à 2023**. L’application ouvre directement ce fichier et ne télécharge aucune base au lancement.
-
-Bibliothèques Python utilisées :
-
-- **Flask 3.1.3** : application web.
-- **pandas 3.0.1** : préparation des résultats des requêtes.
-- **Matplotlib 3.11.2** : génération des graphiques.
+Préparer **Python 3.12**. Télécharger le dépôt, le décompresser, puis ouvrir un terminal à sa racine, dans le dossier `site-amelie`. Le ZIP inclut le code et la base complète.
 
 Installer les bibliothèques et lancer l’application :
 
