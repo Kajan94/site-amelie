@@ -1,9 +1,46 @@
 from contextlib import closing
-from prepare_data import prepare_database
+import hashlib
+from pathlib import Path
+from tempfile import NamedTemporaryFile
+from urllib.request import urlopen
 import pandas as pd
 import sqlite3
 
-db_path = prepare_database()
+db_path = Path(__file__).resolve().parent / "data" / "ameli.db"
+DATABASE_URL = (
+    "https://media.githubusercontent.com/media/Kajan94/database-amelie/"
+    "81535b7fbd2a7089d426f4338cf4ceae82bd581e/ameli.db"
+)
+DATABASE_SHA256 = "f23025c876465548c932d76de18b7c9769517a1b8049d72f8cd8a99feb4f850a"
+
+
+def _download_database():
+    """Télécharge une fois la base publique complète, puis vérifie son intégrité."""
+    db_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary_path = None
+    print("Téléchargement de la base complète Ameli (278 Mo)…", flush=True)
+    try:
+        digest = hashlib.sha256()
+        size = 0
+        with urlopen(DATABASE_URL, timeout=60) as source:
+            with NamedTemporaryFile(dir=db_path.parent, suffix=".part", delete=False) as target:
+                temporary_path = Path(target.name)
+                while chunk := source.read(1024 * 1024):
+                    target.write(chunk)
+                    digest.update(chunk)
+                    size += len(chunk)
+        if size != 278020096 or digest.hexdigest() != DATABASE_SHA256:
+            raise ValueError("Le fichier reçu ne correspond pas à la base complète attendue.")
+        temporary_path.replace(db_path)
+        print("Base complète disponible dans model/data/ameli.db.", flush=True)
+    except (OSError, ValueError) as error:
+        raise RuntimeError(
+            "Impossible de récupérer la base complète. Vérifier la connexion Internet "
+            "et relancer l’application, ou télécharger ameli.db depuis le lien du README."
+        ) from error
+    finally:
+        if temporary_path is not None:
+            temporary_path.unlink(missing_ok=True)
 
 #####################################################################
 # FONCTIONS UTILES
@@ -14,6 +51,14 @@ def connect_db():
     Fonction pour se connecter à la base de données.
     Retourne une connexion SQLite.
     """
+    if not db_path.is_file():
+        _download_database()
+    with db_path.open("rb") as database:
+        if database.read(16) != b"SQLite format 3\x00":
+            raise ValueError(
+                "Le fichier model/data/ameli.db n’est pas la base SQLite complète. "
+                "Télécharger le fichier depuis le lien du README."
+            )
     return sqlite3.connect(db_path.as_uri() + "?mode=ro", uri=True)
 
 

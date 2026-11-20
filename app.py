@@ -7,6 +7,7 @@ matplotlib.use('Agg')
 from utils.graphiques import graphique, graphique_camembert_prescriptions
 
 app = Flask(__name__)
+db.connect_db().close()
 
 @app.route('/')
 def accueil():

@@ -9,6 +9,16 @@
 
 </head>
 <body>
+    <header>
+        <div class="header">
+            <nav class="nav-bar" aria-label="Navigation principale">
+                <ul>
+                    <li><a href="{{ url_for('accueil') }}">Accueil</a></li>
+                    <li><a href="{{ url_for('apropos') }}">À propos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     <div class="container">
         <!-- Titre principal affichant le nom de la région -->
         <h1>Professions de santé - {{ region_name }}{% if annee %}, {{ annee }}{% endif %}</h1>
