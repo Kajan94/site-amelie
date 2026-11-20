@@ -24,9 +24,9 @@ Répartition des montants des prescriptions en 2023 pour l’ensemble des médec
 
 ## Lancer en local
 
-Préparer **Python 3.12** avec pip, version utilisée pour vérifier le projet. Télécharger ou cloner le dépôt, puis ouvrir un terminal à sa racine, dans le dossier `site-amelie`.
+Préparer **Python 3.12** avec pip, version utilisée pour vérifier le projet. Télécharger le dépôt avec **Code > Download ZIP**, le décompresser, puis ouvrir un terminal à sa racine, dans le dossier `site-amelie`. Le ZIP inclut le code et la base complète.
 
-Au premier lancement, l’application télécharge automatiquement la **base complète** depuis le [dépôt de données Ameli](https://github.com/Kajan94/database-amelie), puis vérifie son intégrité. Prévoir une connexion Internet et environ **278 Mo** d’espace libre. Le fichier est enregistré dans `model/data/ameli.db` ; les lancements suivants le réutilisent sans téléchargement.
+La base SQLite intégrale **`model/data/ameli.db`** est stockée dans le dépôt avec **Git LFS**, comme dans le dépôt `database-amelie`. Elle conserve toutes les tables, dont les honoraires, et l’ensemble des données de **2010 à 2023**. L’application ouvre directement ce fichier et ne télécharge aucune base au lancement.
 
 Bibliothèques Python utilisées :
 
@@ -45,8 +45,6 @@ Sur macOS ou Linux, utiliser `python3` à la place de `python` si nécessaire.
 
 Ouvrir [localhost:5000](http://127.0.0.1:5000). Aucun compte ni serveur de base de données n’est nécessaire. Aucun script de préparation ni import de données n’est à lancer.
 
-Si le téléchargement automatique est indisponible, [télécharger la base complète](https://github.com/Kajan94/database-amelie/raw/81535b7fbd2a7089d426f4338cf4ceae82bd581e/ameli.db), la placer dans `model/data/` sous le nom `ameli.db`, puis relancer l’application.
-
 Les données réelles agrégées couvrent **2010 à 2023**. La carte permet de consulter les effectifs des **18 régions**, et les graphiques utilisent la base complète.
 
 ## Fonctionnalités
@@ -61,10 +59,10 @@ Les données réelles agrégées couvrent **2010 à 2023**. La carte permet de c
 Flask reçoit les demandes de l’utilisateur, pandas prépare les résultats des requêtes SQLite et Matplotlib produit les graphiques. Les pages utilisent HTML, CSS et JavaScript.
 
 - `app.py` : routes, formulaires et transmission des résultats aux pages.
-- `model/db.py` : récupération de la base au premier lancement, connexion SQLite et requêtes sur les effectifs et les prescriptions.
+- `model/db.py` : connexion SQLite et requêtes sur les effectifs et les prescriptions.
 - `utils/graphiques.py` : génération des graphiques.
 - `templates/` et `static/` : pages, carte et interactions de l’interface.
-- `model/data/ameli.db` : base SQLite complète, téléchargée localement au premier lancement.
+- `model/data/ameli.db` : base SQLite intégrale, ouverte directement par l’application.
 
 Pour la conception et l’exploration SQL, consulter le [dépôt consacré à la base de données](https://github.com/Kajan94/database-amelie).
 

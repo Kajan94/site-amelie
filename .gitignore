@@ -1,3 +1,3 @@
 __pycache__/
 *.py[cod]
-model/data/
+model/data/*.part
