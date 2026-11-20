@@ -24,7 +24,7 @@ Répartition des montants des prescriptions en 2023 pour l’ensemble des médec
 
 ## Lancer en local
 
-Préparer **Python 3.12**. Télécharger le dépôt, le décompresser, puis ouvrir un terminal à sa racine, dans le dossier `site-amelie`. Le ZIP inclut le code et la base complète.
+Préparer **Python 3.12**. [Télécharger le dépôt](https://github.com/Kajan94/site-amelie/archive/refs/heads/main.zip), le décompresser, puis ouvrir un terminal à sa racine, dans le dossier `site-amelie`. Le ZIP inclut le code et la base complète.
 
 Installer les bibliothèques et lancer l’application :
 
