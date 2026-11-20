@@ -4,8 +4,6 @@ Data Ameli est une application web qui permet d’explorer les données agrégé
 
 ## Aperçus du projet
 
-Captures de l’application. La capture d’accueil montre une ancienne démonstration ; la version actuelle utilise la base complète de 2010 à 2023.
-
 ### Accueil
 
 [![Page d’accueil de Data Ameli](docs/01-accueil.png)](docs/01-accueil.png)
@@ -37,7 +35,7 @@ python -m flask --app app run
 
 Sur macOS ou Linux, utiliser `python3` à la place de `python` si nécessaire.
 
-Ouvrir [localhost:5000](http://127.0.0.1:5000). Aucun compte n’est nécessaire. Le site utilise SQLite et ne nécessite pas de serveur de base de données.
+Ouvrir [localhost:5000](http://127.0.0.1:5000). 
 
 Au premier lancement, l’application extrait automatiquement la **base complète déjà remplie** depuis `site-amelie.zip` vers `model/data/debase_db.sqllite3` (environ 278 Mo). Il faut conserver cette archive à la racine du dépôt et prévoir l’espace disque nécessaire. Aucun import CSV ni génération de données n’est à exécuter. Les lancements suivants réutilisent le fichier extrait.
 
