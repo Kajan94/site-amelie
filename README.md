@@ -50,11 +50,13 @@ Les données réelles agrégées couvrent **2010 à 2023**. La carte permet de c
 
 Flask reçoit les demandes de l’utilisateur, pandas prépare les résultats des requêtes SQLite et Matplotlib produit les graphiques. Les pages utilisent HTML, CSS et JavaScript.
 
-- `app.py` : routes, formulaires et transmission des résultats aux pages.
-- `model/db.py` : connexion SQLite et requêtes sur les effectifs et les prescriptions.
-- `utils/graphiques.py` : génération des graphiques.
-- `templates/` et `static/` : pages, carte et interactions de l’interface.
-- `model/data/ameli.db` : base SQLite intégrale, ouverte directement par l’application.
+| Chemin | Rôle |
+| --- | --- |
+| `app.py` | Routes, formulaires et transmission des résultats aux pages. |
+| `model/db.py` | Connexion SQLite et requêtes sur les effectifs et les prescriptions. |
+| `utils/graphiques.py` | Génération des graphiques avec Matplotlib. |
+| `templates/` et `static/` | Pages, carte et interactions de l’interface. |
+| `model/data/ameli.db` | Base SQLite intégrale, ouverte directement par l’application. |
 
 Pour la conception et l’exploration SQL, consulter le [dépôt consacré à la base de données](https://github.com/Kajan94/database-amelie).
 
